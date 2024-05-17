@@ -58,3 +58,37 @@ Create React App is an officially supported way to create single-page React appl
 ## Example:
 
 Here's what each command does:
+
+- `npx create-react-app my-app`: Creates a new React project named "my-app".
+- `cd my-app`: Changes the directory to your new project.
+- `npm start`: Starts the development server.
+
+
+## 3. React Components
+
+**What are Components?**
+
+Components are the building blocks of a React application. They let you split the UI into independent, reusable pieces.
+
+**Types of Components:**
+
+- Function Components: JavaScript functions that return JSX.
+- Class Components: ES6 classes that extend `React.Component`.
+
+**Example: Function Component**
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+**Example: Class Component**
+
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
