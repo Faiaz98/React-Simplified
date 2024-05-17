@@ -123,3 +123,42 @@ function Welcome(props) {
 //Usage
 <Welcome name="Sara" />
 ```
+## 6. State
+
+**What is State?**
+
+State is a built-in object that stores property values that belong to a component. State changes can be asynchronous and can trigger re-renders.
+
+**Example: Class Component with State**
+
+```jsx
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date(),
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>It is {this.state.date.toLocaleTimeString()}.</h1>
+      </div>
+    );
+  }
+}
+
+```
