@@ -40,3 +40,21 @@ React is a JavaScript library for building user interfaces. It makes creating in
 - Component-Based: Build encapsulated components that manage their own state.
 - Learn Once, Write Anywhere: You can develop new features in React without rewriting existing code.
 
+
+## 2. Setting Up a React Environment
+
+**Using Create React App**
+
+Create React App is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
+
+  1. Install Node.js and npm
+  2. Run the following command in your terminal:
+     ```bash
+     npx create-react-app my-app
+     cd my-app
+     npm start
+     ```
+
+## Example:
+
+Here's what each command does:
