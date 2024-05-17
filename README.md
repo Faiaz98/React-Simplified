@@ -92,3 +92,34 @@ class Welcome extends React.Component {
   }
 }
 ```
+
+
+## 4. JSX
+
+**What is JSX?**
+
+JSX stands for JavaScript XML. It allows you to write HTML in React. JSX makes it easier to write and add HTML in React.
+
+**Example:**
+
+```jsx
+const element = <h1>Hello, world!</h1>;
+```
+
+
+## 5. Props
+
+**What are Props?**
+
+Props are arguments passed into React components. They are used to pass data from one component to another.
+
+**Example:**
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name} </h1>;
+}
+
+//Usage
+<Welcome name="Sara" />
+```
