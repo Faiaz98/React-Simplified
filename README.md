@@ -204,3 +204,73 @@ function Counter() {
   );
 }
 ```
+
+
+## 9. Event Handling
+
+**Handling Events**
+
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+
+- React events are named using camelCase.
+- You pass a function as the event handler, not a string.
+
+**Example:**
+
+```jsx
+function Toggle() {
+  const [isOn, setIsOn] = useState(true);
+
+  const handleClick = () => {
+    setIsOn(!isOn);
+  };
+
+  return (
+    <button onClick={handleClick}>
+      {isOn ? 'ON' : 'OFF'}
+    </button>
+  );
+}
+```
+
+## 10. Conditional Rendering
+
+**What is Conditional Rendering?**
+
+Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or `condition ? true : false` to create elements representting the current state.
+
+**Example:**
+
+```jsx
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <h1>Welcome back!</h1>;
+  }
+  return <h1>Please sign up.</h1>;
+}
+```
+
+## 11. Lists and Keys
+
+**Rendering Lists**
+
+You can build collections of elements and include them in JSX using curly braces `{}`.
+
+**Example:**
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+);
+
+function NumberList() {
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+```
