@@ -162,3 +162,27 @@ class Clock extends React.Component {
 }
 
 ```
+
+## 7. Lifecycle Methods(Class Components)
+
+**What are Lifecycle Methods?**
+
+Lifecycle methods are special methods each component can have that allow us to run code at particular times in the process.
+
+**Example: Common Lifecycle Methods**
+
+- `componentDidMount()`: Executed after the first render.
+- `componentDidUpdate(prevProps, prevState)`: Executed after every update.
+- `componentWillUnmount()`: Executed just before the component is removed from the DOM.
+
+## 8. Hooks(Function Components)
+
+**What are Hooks?**
+
+Hooks are functions that let you use state and other React features in function components.
+
+**Common Hooks**
+
+- `useState`: Allows you to add state to function components.
+- `useEffect`: Allows you to perform side effects in function components.
+
