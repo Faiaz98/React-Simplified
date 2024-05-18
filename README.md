@@ -457,3 +457,159 @@ export default App;
 **What is Context API?**
 
 The Context API is a way to pass data through the component tree without having to pass props down manually at every level.
+
+**Example:**
+
+1. Create a Context:
+
+```jsx
+const ThemeContext = React.createContext('light');
+```
+
+2. Provide Context:
+
+```jsx
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+```
+
+3. Consume Context:
+
+```jsx
+function Toolbar() {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+function ThemedButton() {
+  const theme = React.useContext(ThemeContext);
+  return <button theme={theme}>Button</button>;
+}
+```
+
+## 17. Error Boundaries
+
+**What are Error Boundaries?**
+
+Error boundaries are React Components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+
+**Example:**
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+
+function MyComponent() {
+  return (
+    <ErrorBoundary>
+      <MyWidget />
+    </ErrorBoundary>
+  );
+}
+```
+
+## 18. Higher-Order Components (HOCs)
+
+**What are Higher-Order Components?**
+
+A higher-order component (HOC) is a function that takes a component and returns a new component. HOCs are used to reuse component logic.
+
+```jsx
+function withLogger(WrappedComponent) {
+  return class extends React.Component {
+    componentDidMount() {
+      console.log('Component mounted');
+    }
+
+    render() {
+      return <WrappedComponent {...this.props} />;
+    }
+  };
+}
+
+const EnhancedComponent = withLogger(MyComponent);
+```
+
+## 19. Code Splitting and Lazy Loading
+
+**What is Code Splitting?**
+
+Code splitting allows you to split your code into smaller bundles which can be loaded on demand. This can improve the performance of your application.
+
+**Example:**
+
+```jsx
+import React, { Suspense, lazy } from 'react';
+
+const OtherComponent = lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+## 20. Testing in React
+
+**Why Test React Applications?**
+
+Testing ensures that your components render correctly and behave as expected.
+
+**Tools for Testing:**
+
+- Jest: A testing framework.
+- React Testing Library: A library for testing React components.
+
+**Example: Basic Test with React Testing Library**
+
+1. Install React Testing Library:
+
+```bash
+npm install @testing-library/react
+```
+
+2. Write a test:
+
+```jsx
+import { render, screen } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('renders a message', () => {
+  render(<MyComponent />);
+  const linkElement = screen.getByText(/hello, world/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
