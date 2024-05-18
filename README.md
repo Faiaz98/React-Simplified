@@ -186,3 +186,21 @@ Hooks are functions that let you use state and other React features in function 
 - `useState`: Allows you to add state to function components.
 - `useEffect`: Allows you to perform side effects in function components.
 
+**Example: useState Hook**
+
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
