@@ -316,3 +316,79 @@ class NameForm extends React.Component {
 }
 
 ```
+
+## 13. Lifting State Up
+
+**What is Lifting State Up?**
+
+Lifting state up means moving the state to a common ancestor of the components that need it. This helps keep data consistent and allows components to share state.
+
+**Example:**
+
+```jsx
+function BoilingVerdict(props) {
+  if (props.celsius >= 100) {
+    return <p>The water would boil.</p>;
+  }
+  return <p>The water would not boil.</p>;
+}
+
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { temperature: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ temperature: e.target.value });
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    return (
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input
+          value={temperature}
+          onChange={this.handleChange} />
+        <BoilingVerdict
+          celsius={parseFloat(temperature)} />
+      </fieldset>
+    );
+  }
+}
+```
+
+
+## 14. Composition vs Inheritance
+
+**Composition**
+
+Composition is a way to combine multiple components into one.
+
+**Example:**
+
+```jsx
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        Welcome
+      </h1>
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
+      </p>
+    </FancyBorder>
+  );
+}
+```
