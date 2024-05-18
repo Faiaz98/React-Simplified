@@ -392,3 +392,68 @@ function WelcomeDialog() {
   );
 }
 ```
+
+## 15. React Router
+
+**What is React Router?**
+
+React Router is a library that helps you handle routing in a React application, enabling navigation between views or pages.
+
+**Basic Setup:**
+
+1. Install React Router:
+
+   ```bash
+    npm install react-router-dom
+   ```
+
+2. Basic Example:
+
+```jsx
+    import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+export default App;
+
+```
+
+## 16. Context API
+
+**What is Context API?**
+
+The Context API is a way to pass data through the component tree without having to pass props down manually at every level.
